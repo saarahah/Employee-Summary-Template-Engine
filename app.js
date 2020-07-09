@@ -26,52 +26,124 @@ var employeeCounter = 0;
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-questionloop();
-function questionloop(){
-inquirer.prompt(  {
+var prompt = function(question){
+    return inquirer
+    .prompt(question)
+    .then(function(answers){ 
+        switch(answers.role){
+            case "Intern" :
+                inquirer.prompt(questionsIntern).then(answers=>{
+                    //var employeename = "employee" + employeeCounter;
+                    
+                   teamArray[employeeCounter] = new Intern(answers.name, answers.id, answers.email, answers.school);
+                   employeeCounter ++ ;
+                   if (answers.add == "yes"){
+                       return prompt(initialQ)
+                   }else{
+                       return
+                   }
+                })
+
+            break;
+        
+
+            case "Manager":
+
+            break;
+
+
+            case "Engineer":
+
+            break;
+        }
+        // if( employeeCounter  < 3){
+        //     employeeCounter++;
+        //     console.log(employeeCounter)
+        //     return prompt(question1);
+            
+        // }else{
+        //     return prompt(question2)
+        // }
+    })
+}
+
+const initialQ = {
     type: "list",
     name: "role",
     message: "what is your role?",
     choices: [ "Intern",
     "Engineer",
     "Manager"
-
 ]
 }
 
-).then(answers => {
+prompt(initialQ);
 
-    switch(answers.role){ case "Intern":
-         inquirer.prompt(questionsIntern).then(answers=>{
-             //var employeename = "employee" + employeeCounter;
-             
-            teamArray[employeeCounter] = new Intern(answers.name, answers.id, answers.email, answers.school);
-            employeeCounter ++ ;
-         })
- 
-     break;
-     case "Engineer":
-        inquirer.prompt(questionsEngineer).then(answers=>{
-            //var employeename = "employee" + employeeCounter;
-            
-           teamArray[employeeCounter] = new Engineer(answers.name, answers.id, answers.email, answers.github);
-           employeeCounter ++ ;
-        })
- 
-     break;
-     case "Manager":
-        inquirer.prompt(questionsManager).then(answers=>{
-            //var employeename = "employee" + employeeCounter;
-            
-           teamArray[employeeCounter] = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-           employeeCounter ++ ;
-        })
-     break;
- }
-})
+const question1 = 
+{
+    type: "input",
+    name: "name",
+    message: "who are you",
+
+}
+
+const question2 = 
+{
+    type: "input",
+    name: "notname",
+    message: "who arent you",
+
 }
 
 
+
+// ).then(answers => {
+
+//     switch(answers.role){ case "Intern":
+        //  inquirer.prompt(questionsIntern).then(answers=>{
+        //      //var employeename = "employee" + employeeCounter;
+             
+        //     teamArray[employeeCounter] = new Intern(answers.name, answers.id, answers.email, answers.school);
+        //     employeeCounter ++ ;
+        //  })
+ 
+//      break;
+//      case "Engineer":
+//         inquirer.prompt(questionsEngineer).then(answers=>{
+//             //var employeename = "employee" + employeeCounter;
+            
+//            teamArray[employeeCounter] = new Engineer(answers.name, answers.id, answers.email, answers.github);
+//            employeeCounter ++ ;
+//         })
+ 
+//      break;
+//      case "Manager":
+//         inquirer.prompt(questionsManager).then(answers=>{
+//             //var employeename = "employee" + employeeCounter;
+            
+//            teamArray[employeeCounter] = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+//            employeeCounter ++ ;
+//         })
+//      break;
+//  }
+// })
+// }
+
+
+    
+    //     type: "list",
+    //     name: "add",
+    //     message: "do you want to add another team member?",
+    //     choices: [ "yes",
+    //     "no",   
+    // ]
+    
+
+
+
+// if(answers.add==="yes"){
+//     questionloop();
+// }
 
 const questionsEngineer= [
 
@@ -107,7 +179,7 @@ const questionsEngineer= [
     choices: [ "yes",
     "no",   
 ]
-},
+}
 ]
 
 const questionsIntern = [
@@ -183,37 +255,6 @@ const questionsManager = [
 }
 ]
 
-
-
-
-// const teamMember =
-// {
-//     type: "list",
-//     name: "add",
-//     message: "do you want to add another team member?",
-//     choices: [ "yes",
-//     "no",   
-// ]
-// }
-
-// inquirer.prompt(questionSetAll).then(answers => {
-//    console.log(answers);
-//    console.log(answers.role);
-//    switch(answers.role){ case "Intern":
-//         inquirer.prompt(questionSchool)
-
-//     break;
-//     case "Engineer":
-//         inquirer.prompt(questionGitHub)
-
-//     break;
-//     case "Manager":
-//         inquirer.prompt(officeNumber)
-//     break;
-
-// }
-
-// })
 
 //everytime refer to class create object
 
