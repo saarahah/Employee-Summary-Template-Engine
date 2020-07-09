@@ -33,11 +33,10 @@ var prompt = function(question){
         switch(answers.role){
             case "Intern" :
                 inquirer.prompt(questionsIntern).then(answers=>{
-                    //var employeename = "employee" + employeeCounter;
-                    
                    teamArray[employeeCounter] = new Intern(answers.name, answers.id, answers.email, answers.school);
                    employeeCounter ++ ;
                    if (answers.add == "yes"){
+                    console.log(teamArray);
                        return prompt(initialQ)
                    }else{
                        return
@@ -49,21 +48,35 @@ var prompt = function(question){
 
             case "Manager":
 
+                inquirer.prompt(questionsManager).then(answers=>{
+                    teamArray[employeeCounter] = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+                    employeeCounter ++ ;
+                    if (answers.add == "yes"){
+                        console.log(teamArray);
+                        return prompt(initialQ)
+                    }else{
+                        return
+                    }
+                 })
+
             break;
 
 
             case "Engineer":
 
+                inquirer.prompt(questionsEngineer).then(answers=>{
+                    teamArray[employeeCounter] = new Engineer(answers.name, answers.id, answers.email, answers.github);
+                    employeeCounter ++ ;
+                    if (answers.add == "yes"){
+                        console.log(teamArray);
+                        return prompt(initialQ)
+                    }else{
+                        return
+                    }
+                 })
+
             break;
         }
-        // if( employeeCounter  < 3){
-        //     employeeCounter++;
-        //     console.log(employeeCounter)
-        //     return prompt(question1);
-            
-        // }else{
-        //     return prompt(question2)
-        // }
     })
 }
 
@@ -95,55 +108,6 @@ const question2 =
 
 }
 
-
-
-// ).then(answers => {
-
-//     switch(answers.role){ case "Intern":
-        //  inquirer.prompt(questionsIntern).then(answers=>{
-        //      //var employeename = "employee" + employeeCounter;
-             
-        //     teamArray[employeeCounter] = new Intern(answers.name, answers.id, answers.email, answers.school);
-        //     employeeCounter ++ ;
-        //  })
- 
-//      break;
-//      case "Engineer":
-//         inquirer.prompt(questionsEngineer).then(answers=>{
-//             //var employeename = "employee" + employeeCounter;
-            
-//            teamArray[employeeCounter] = new Engineer(answers.name, answers.id, answers.email, answers.github);
-//            employeeCounter ++ ;
-//         })
- 
-//      break;
-//      case "Manager":
-//         inquirer.prompt(questionsManager).then(answers=>{
-//             //var employeename = "employee" + employeeCounter;
-            
-//            teamArray[employeeCounter] = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-//            employeeCounter ++ ;
-//         })
-//      break;
-//  }
-// })
-// }
-
-
-    
-    //     type: "list",
-    //     name: "add",
-    //     message: "do you want to add another team member?",
-    //     choices: [ "yes",
-    //     "no",   
-    // ]
-    
-
-
-
-// if(answers.add==="yes"){
-//     questionloop();
-// }
 
 const questionsEngineer= [
 
