@@ -16,6 +16,7 @@ const render = require("./lib/htmlRenderer");
 
 //example
 const teamArray = [];
+var employeeCounter = 0;
 
 // const renderHTML = render(teamArray);
 // fs.writeFile(outputPath, renderHTML, (err)=>{
@@ -24,64 +25,118 @@ const teamArray = [];
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-const questionSetAll = [
+
+questionloop();
+function questionloop(){
+inquirer.prompt(  {
+    type: "list",
+    name: "role",
+    message: "what is your role?",
+    choices: [ "Intern",
+    "Engineer",
+    "Manager"
+
+]
+}
+
+).then(answers => {
+
+    switch(answers.role){ case "Intern":
+         inquirer.prompt(questionsIntern).then(answers=>{
+             //var employeename = "employee" + employeeCounter;
+             
+            teamArray[employeeCounter] = new Intern(answers.name, answers.id, answers.email, answers.school);
+            employeeCounter ++ ;
+         })
+ 
+     break;
+     case "Engineer":
+        inquirer.prompt(questionsEngineer).then(answers=>{
+            //var employeename = "employee" + employeeCounter;
+            
+           teamArray[employeeCounter] = new Engineer(answers.name, answers.id, answers.email, answers.github);
+           employeeCounter ++ ;
+        })
+ 
+     break;
+     case "Manager":
+        inquirer.prompt(questionsManager).then(answers=>{
+            //var employeename = "employee" + employeeCounter;
+            
+           teamArray[employeeCounter] = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+           employeeCounter ++ ;
+        })
+     break;
+ }
+})
+}
+
+
+
+const questionsEngineer= [
 
     {
         type: "input",
         name: "name",
-        message: "What is your name?"
+        message: "What is the name?"
 
     },
 
     {
         type: "input",
         name: "email",
-        message: "what is your email address?"
+        message: "what is the email address?"
 
     },
 
     {
         type: "input",
         name: "id",
-        message: "what is your ID?"
+        message: "what is the ID?"
 
     },
-
-    {
-        type: "list",
-        name: "role",
-        message: "what is your role?",
-        choices: [ "Intern",
-        "Engineer",
-        "Manager"
-
-    ]
-    }
-]
-
-const questionGitHub= [
     {
         type: "input",
         name: "github",
-        message: "what is your github"
-    }
+        message: "what is the github"
+    },
+    {
+    type: "list",
+    name: "add",
+    message: "do you want to add another team member?",
+    choices: [ "yes",
+    "no",   
+]
+},
 ]
 
-const questionSchool = 
+const questionsIntern = [
+{
+    type: "input",
+    name: "name",
+    message: "What is the name?"
+
+},
+
+{
+    type: "input",
+    name: "email",
+    message: "what is the email address?"
+
+},
+
+{
+    type: "input",
+    name: "id",
+    message: "what is the ID?"
+
+},
+
 {
     type: "input",
     name: "school",
-    message: "what is your school"   
-}
-
-const officeNumber = 
-{
-    type: "input",
-    name: "officeNumber",
-    message: "what is your office number?"   
-}
-
-const teamMember =
+    message: "what is the school"   
+},
 {
     type: "list",
     name: "add",
@@ -90,25 +145,75 @@ const teamMember =
     "no",   
 ]
 }
+]
 
-inquirer.prompt(questionSetAll).then(answers => {
-   console.log(answers);
-   console.log(answers.role);
-   switch(answers.role){ case "Intern":
-        inquirer.prompt(questionSchool)
+const questionsManager = [
+    {
+        type: "input",
+        name: "name",
+        message: "What is the name?"
 
-    break;
-    case "Engineer":
-        inquirer.prompt(questionGitHub)
+    },
 
-    break;
-    case "Manager":
-        inquirer.prompt(officeNumber)
-    break;
+    {
+        type: "input",
+        name: "email",
+        message: "what is the email address?"
 
+    },
+
+    {
+        type: "input",
+        name: "id",
+        message: "what is the ID?"
+
+    },
+{
+    type: "input",
+    name: "officeNumber",
+    message: "what is the office number?"   
+},
+{
+    type: "list",
+    name: "add",
+    message: "do you want to add another team member?",
+    choices: [ "yes",
+    "no",   
+]
 }
+]
 
-})
+
+
+
+// const teamMember =
+// {
+//     type: "list",
+//     name: "add",
+//     message: "do you want to add another team member?",
+//     choices: [ "yes",
+//     "no",   
+// ]
+// }
+
+// inquirer.prompt(questionSetAll).then(answers => {
+//    console.log(answers);
+//    console.log(answers.role);
+//    switch(answers.role){ case "Intern":
+//         inquirer.prompt(questionSchool)
+
+//     break;
+//     case "Engineer":
+//         inquirer.prompt(questionGitHub)
+
+//     break;
+//     case "Manager":
+//         inquirer.prompt(officeNumber)
+//     break;
+
+// }
+
+// })
 
 //everytime refer to class create object
 
