@@ -17,13 +17,98 @@ const render = require("./lib/htmlRenderer");
 //example
 const teamArray = [];
 
-const renderHTML = render(teamArray);
-fs.writeFile(outputPath, renderHTML, (err)=>{
-    console.log('file generated')
-})
+// const renderHTML = render(teamArray);
+// fs.writeFile(outputPath, renderHTML, (err)=>{
+//     console.log('file generated')
+// })
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+const questionSetAll = [
+
+    {
+        type: "input",
+        name: "name",
+        message: "What is your name?"
+
+    },
+
+    {
+        type: "input",
+        name: "email",
+        message: "what is your email address?"
+
+    },
+
+    {
+        type: "input",
+        name: "id",
+        message: "what is your ID?"
+
+    },
+
+    {
+        type: "list",
+        name: "role",
+        message: "what is your role?",
+        choices: [ "Intern",
+        "Engineer",
+        "Manager"
+
+    ]
+    }
+]
+
+const questionGitHub= [
+    {
+        type: "input",
+        name: "github",
+        message: "what is your github"
+    }
+]
+
+const questionSchool = 
+{
+    type: "input",
+    name: "school",
+    message: "what is your school"   
+}
+
+const officeNumber = 
+{
+    type: "input",
+    name: "officeNumber",
+    message: "what is your office number?"   
+}
+
+const teamMember =
+{
+    type: "list",
+    name: "add",
+    message: "do you want to add another team member?",
+    choices: [ "yes",
+    "no",   
+]
+}
+
+inquirer.prompt(questionSetAll).then(answers => {
+   console.log(answers);
+   console.log(answers.role);
+   switch(answers.role){ case "Intern":
+        inquirer.prompt(questionSchool)
+
+    break;
+    case "Engineer":
+        inquirer.prompt(questionGitHub)
+
+    break;
+    case "Manager":
+        inquirer.prompt(officeNumber)
+    break;
+
+}
+
+})
 
 //everytime refer to class create object
 
