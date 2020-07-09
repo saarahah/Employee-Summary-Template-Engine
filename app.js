@@ -6,13 +6,27 @@ const path = require("path");
 const fs = require("fs");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
+//target location, creates HTML file inside output folder
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-
+//render function
+//needs to pass array in as render function
 const render = require("./lib/htmlRenderer");
 
+//push object in team array
+
+//example
+const teamArray = [];
+
+const renderHTML = render(teamArray);
+fs.writeFile(outputPath, renderHTML, (err)=>{
+    console.log('file generated')
+})
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+//everytime refer to class create object
+
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
