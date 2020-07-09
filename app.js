@@ -18,10 +18,12 @@ const render = require("./lib/htmlRenderer");
 const teamArray = [];
 var employeeCounter = 0;
 
-// const renderHTML = render(teamArray);
-// fs.writeFile(outputPath, renderHTML, (err)=>{
-//     console.log('file generated')
-// })
+function callRender(){
+const renderHTML = render(teamArray);
+fs.writeFile(outputPath, renderHTML, (err)=>{
+     console.log('file generated')
+ })
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -39,7 +41,7 @@ var prompt = function(question){
                     console.log(teamArray);
                        return prompt(initialQ)
                    }else{
-                       return
+                       return callRender()
                    }
                 })
 
@@ -55,7 +57,7 @@ var prompt = function(question){
                         console.log(teamArray);
                         return prompt(initialQ)
                     }else{
-                        return
+                        return callRender()
                     }
                  })
 
@@ -71,7 +73,7 @@ var prompt = function(question){
                         console.log(teamArray);
                         return prompt(initialQ)
                     }else{
-                        return
+                        return callRender()
                     }
                  })
 
