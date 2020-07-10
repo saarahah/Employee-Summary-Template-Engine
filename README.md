@@ -11,4 +11,4 @@ This is a CLI application for a potential manager to log employees and their inf
 
 ![image](./images/screenshot1.png)
 
-<img src = "images/screenshot1.png">
+<img src = "./images/screenshot1.png">
