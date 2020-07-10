@@ -45,7 +45,6 @@ var prompt = function(question){
                    employeeCounter ++ ;
 //if you want to add another person...
                    if (answers.add == "yes"){
-                    console.log(teamArray);
 //stop function and rerun from beginning
                        return prompt(initialQ)
 //if karen tells the manager not to add another employee because reasons
@@ -62,7 +61,6 @@ var prompt = function(question){
                     teamArray[employeeCounter] = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
                     employeeCounter ++ ;
                     if (answers.add == "yes"){
-                        console.log(teamArray);
                         return prompt(initialQ)
                     }else{
                         return callRender()
@@ -75,7 +73,6 @@ var prompt = function(question){
                     teamArray[employeeCounter] = new Engineer(answers.name, answers.id, answers.email, answers.github);
                     employeeCounter ++ ;
                     if (answers.add == "yes"){
-                        console.log(teamArray);
                         return prompt(initialQ)
                     }else{
                         return callRender()
