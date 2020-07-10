@@ -26,16 +26,18 @@ This project is licensed under none.
 No contributions
 
 ## Screenshots
+
+![image](screenshot1.png)
 <br/>
-![image](images/screenshot1.png)
+![image](screenshot2.png)
 <br/>
-![image](images/screenshot2.png)
+![image](screenshot3.png)
 <br/>
-![image](images/screenshot3.png)
+![image](screenshot4.png)
 <br/>
-![image](images/screenshot4.png)
+![image](screenshot5.png)
 <br/>
-![image](images/screenshot5.png)
-<br/>
-![image](images/screenshot6.png)
+![image](screenshot6.png)
+
+
 
