@@ -27,17 +27,17 @@ No contributions
 
 ## Screenshots
 
-![image](images/screenshot1.png)
+![image](images/screenshot1.PNG)
 <br/>
-![image](images/screenshot2.png)
+![image](images/screenshot2.PNG)
 <br/>
-![image](images/screenshot3.png)
+![image](images/screenshot3.PNG)
 <br/>
-![image](images/screenshot4.png)
+![image](images/screenshot4.PNG)
 <br/>
-![image](images/screenshot5.png)
+![image](images/screenshot5.PNG)
 <br/>
-![image](images/screenshot6.png)
+![image](images/screenshot6.PNG)
 
 
 
