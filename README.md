@@ -6,7 +6,7 @@ Application run video: https://www.youtube.com/watch?v=oUuHxwOQvsU
 
 ## Description
 
-This is a CLI application for a potential manager to log employees and their information. 
+This is d a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person.
 
 ## Installation
   
