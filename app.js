@@ -107,32 +107,32 @@ const questionsEngineer= [
     {
         type: "input",
         name: "name",
-        message: "What is the name?"
+        message: "What is the engineer's name?"
 
     },
 
     {
         type: "input",
         name: "email",
-        message: "what is the email address?"
+        message: "What is the engineer's email address?"
 
     },
 
     {
         type: "input",
         name: "id",
-        message: "what is the ID?"
+        message: "What is the engineer's ID?"
 
     },
     {
         type: "input",
         name: "github",
-        message: "what is the github"
+        message: "What is the engineer's github"
     },
     {
     type: "list",
     name: "add",
-    message: "do you want to add another team member?",
+    message: "Do you want to add another team member?",
     choices: [ "yes",
     "no",   
 ]
@@ -144,32 +144,32 @@ const questionsIntern = [
 {
     type: "input",
     name: "name",
-    message: "What is the name?"
+    message: "What is the intern's name?"
 
 },
 
 {
     type: "input",
     name: "email",
-    message: "what is the email address?"
+    message: "What is the intern's email address?"
 },
 
 {
     type: "input",
     name: "id",
-    message: "what is the ID?"
+    message: "What is the intern's ID?"
 
 },
 
 {
     type: "input",
     name: "school",
-    message: "what is the school"   
+    message: "What is the intern's school"   
 },
 {
     type: "list",
     name: "add",
-    message: "do you want to add another team member?",
+    message: "Do you want to add another team member?",
     choices: [ "yes",
     "no",   
 ]
@@ -181,33 +181,33 @@ const questionsManager = [
     {
         type: "input",
         name: "name",
-        message: "What is the name?"
+        message: "What is the manager's name?"
 
     },
 
     {
         type: "input",
         name: "email",
-        message: "what is the email address?"
+        message: "What is the manager's email address?"
 
     },
 
     {
         type: "input",
         name: "id",
-        message: "what is the ID?"
+        message: "What is the manager's ID?"
 
     },
     {
     type: "input",
     name: "officeNumber",
-    message: "what is the office number?"   
+    message: "What is the manager's office number?"   
     },
 
     {
     type: "list",
     name: "add",
-    message: "do you want to add another team member?",
+    message: "Do you want to add another team member?",
     choices: [ "yes",
     "no",   
 ]
