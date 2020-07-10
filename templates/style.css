@@ -1,0 +1,15 @@
+body{
+/* background-image: url ("../images/manager.jpg"); */
+background-color: black;
+font-family: 'Montserrat', sans-serif;;
+}
+
+h1{
+    font-family: 'Bangers', cursive;
+    font-size: 69px;
+}
+
+.jumbotron{
+    background-image: url("../images/pattern2.jpg"); 
+    background-repeat: repeat-x;
+}
