@@ -29,15 +29,27 @@ No contributions
 
 ![image](images/screenshot1.PNG)
 <br/>
+Image of output site
+<br/>
 ![image](images/screenshot2.PNG)
+<br/>
+app.js variables and initial code
 <br/>
 ![image](images/screenshot3.PNG)
 <br/>
+inquirer question function 
+<br/>
 ![image](images/screenshot4.PNG)
+<br/>
+end of function and beginning of questions
 <br/>
 ![image](images/screenshot5.PNG)
 <br/>
+question array example
+<br/>
 ![image](images/screenshot6.PNG)
+<br/>
+command line questions
 
 
 
