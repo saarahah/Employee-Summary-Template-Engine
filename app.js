@@ -13,11 +13,12 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 //push object in team array
-
 //example
 const teamArray = [];
+//we use to increment team array index
 var employeeCounter = 0;
 
+//what actually writes the file that gives karen her employee info
 function callRender(){
 const renderHTML = render(teamArray);
 fs.writeFile(outputPath, renderHTML, (err)=>{
@@ -28,29 +29,36 @@ fs.writeFile(outputPath, renderHTML, (err)=>{
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+//function that returns inquirer.prompt
 var prompt = function(question){
-    return inquirer
-    .prompt(question)
+//the return is good because it makes sure i dont run dumb things in the code
+    return inquirer.prompt(question)
+//after the inquirer is done then do function to determine different question paths for employee types
     .then(function(answers){ 
         switch(answers.role){
+//use answers.role and run through intern questions
             case "Intern" :
                 inquirer.prompt(questionsIntern).then(answers=>{
+//after you answer the intern questions then you create a new intern object with the inputs
                    teamArray[employeeCounter] = new Intern(answers.name, answers.id, answers.email, answers.school);
+//increment array position
                    employeeCounter ++ ;
+//if you want to add another person...
                    if (answers.add == "yes"){
                     console.log(teamArray);
+//stop function and rerun from beginning
                        return prompt(initialQ)
+//if karen tells the manager not to add another employee because reasons
                    }else{
+ //give karen the HTML file with all the employees she can talk to the manager about
                        return callRender()
                    }
                 })
-
             break;
-        
-
+//here are the questions karen will ask the manager
             case "Manager":
-
                 inquirer.prompt(questionsManager).then(answers=>{
+//create a new manager object for karens array
                     teamArray[employeeCounter] = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
                     employeeCounter ++ ;
                     if (answers.add == "yes"){
@@ -60,12 +68,9 @@ var prompt = function(question){
                         return callRender()
                     }
                  })
-
             break;
-
-
+//switch to the engineer case and ask corr. questions
             case "Engineer":
-
                 inquirer.prompt(questionsEngineer).then(answers=>{
                     teamArray[employeeCounter] = new Engineer(answers.name, answers.id, answers.email, answers.github);
                     employeeCounter ++ ;
@@ -80,8 +85,10 @@ var prompt = function(question){
             break;
         }
     })
+
 }
 
+//const for the initial question
 const initialQ = {
     type: "list",
     name: "role",
@@ -92,27 +99,11 @@ const initialQ = {
 ]
 }
 
+//use inquirer to prompt initial question
 prompt(initialQ);
 
-const question1 = 
-{
-    type: "input",
-    name: "name",
-    message: "who are you",
-
-}
-
-const question2 = 
-{
-    type: "input",
-    name: "notname",
-    message: "who arent you",
-
-}
-
-
+//const for engineer questions
 const questionsEngineer= [
-
     {
         type: "input",
         name: "name",
@@ -148,6 +139,7 @@ const questionsEngineer= [
 }
 ]
 
+//const for intern questions
 const questionsIntern = [
 {
     type: "input",
@@ -160,7 +152,6 @@ const questionsIntern = [
     type: "input",
     name: "email",
     message: "what is the email address?"
-
 },
 
 {
@@ -185,6 +176,7 @@ const questionsIntern = [
 }
 ]
 
+//karens questions
 const questionsManager = [
     {
         type: "input",
@@ -206,12 +198,13 @@ const questionsManager = [
         message: "what is the ID?"
 
     },
-{
+    {
     type: "input",
     name: "officeNumber",
     message: "what is the office number?"   
-},
-{
+    },
+
+    {
     type: "list",
     name: "add",
     message: "do you want to add another team member?",
